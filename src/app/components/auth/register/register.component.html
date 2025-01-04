@@ -1,0 +1,47 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="p-8 w-full max-w-sm bg-white rounded-md shadow-md">
+        <h2 class="mb-4 text-2xl font-bold">Register</h2>
+        <form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="username" class="block mb-1 text-sm font-medium">UserName</label>
+                <input
+                    id="username"
+                    type="text"
+                    formControlName="username"
+                    class="p-2 w-full rounded border border-grey-300"
+                    placeholder="Choose UserName"
+                />
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block mb-1 text-sm font-medium">Email</label>
+                <input
+                    id="email"
+                    type="email"
+                    formControlName="email"
+                    class="p-2 w-full rounded border border-grey-300"
+                    placeholder="Enter your email"
+                />
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block mb-1 text-sm font-medium">Password</label>
+                <input
+                    id="password"
+                    type="password"
+                    formControlName="password"
+                    class="p-2 w-full rounded border border-grey-300"
+                    placeholder="Enter your password"
+                />
+            </div>
+            <button 
+                type="submit"
+                class="py-2 w-full text-white bg-blue-500 rounded hover:bg-blue-700"
+                [disabled]="registerForm.invalid"
+                [class]="registerForm.invalid ? 'cursor-not-allowed' : ''"
+            >Register</button>
+        </form>
+        <p class="mt-4 text-sm text-center">
+          Already have an account?
+          <a routerLink="/auth/login" class="text-blue-500 hover:underline hover:cursor-pointer">Login</a>  
+        </p>
+    </div>
+</div>

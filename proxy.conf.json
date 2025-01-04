@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://8080-idx-story-plateform-apis-1735490802537.cluster-nx3nmmkbnfe54q3dd4pfbgilpc.cloudworkstations.dev",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
