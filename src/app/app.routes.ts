@@ -12,5 +12,8 @@ export const routes: Routes = [
         path: "",
         redirectTo: "auth/login",
         pathMatch: "full"
-    },
+    }, {
+        path: "collaboration/:storyId",
+        loadComponent: () => import('./components/collaboration/collaboration.component').then(c => c.CollaborationComponent)
+    }
 ];

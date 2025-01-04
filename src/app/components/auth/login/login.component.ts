@@ -18,7 +18,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ){
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]]
@@ -28,15 +28,16 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value)
-      .subscribe({
-        next: (response) => {
-          console.log("response: ", response)
-          this.router.navigate(['/dashboard'])
-        },
-        error: (error) => {
-          this.errorMessage = error.error.message || 'An error occurred. Please try again.';
-        },
-      });
+        .subscribe({
+          next: (response) => {
+            if (response.message === "Login successful") {
+              this.router.navigateByUrl('/collaboration/1')
+            }
+          },
+          error: (error) => {
+            this.errorMessage = error.error.message || 'An error occurred. Please try again.';
+          },
+        });
     }
   }
 
